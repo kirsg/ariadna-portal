@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+<head>
+    <title>Xinom: Ariadna portal alpha</title>
+    <meta http-equiv="Content-Type" content="text/html"; charset=UTF-8>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+    <link href="http://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet">
+
+    <!-- If you'd like to support IE8 -->
+    <script src="http://vjs.zencdn.net/ie8/1.1.1/videojs-ie8.min.js"></script>
+    <style>
+        .container{
+        width: 1200px;
+        align: center;
+        }
+        .heading {
+        background-color: #222; border: 1px solid #222; font-size: 18px;
+        }
+        .small-interval{line-height:0px;}
+
+        .block {
+        background-color: gray;
+        border: 1px solid #222;
+        float: left;
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-right: 5px;
+        height: 300px;
+        }
+        .block1-width{
+        width: 600px;
+        }
+
+        .block2-width{
+        width: 580px;
+        float: right;
+        margin-right: 0px;
+        }
+
+        .block3 {
+        background-color: gray;
+        border: 1px solid #222;
+        margin-right: 5px;
+        height: 100px;
+        width: 1200px;
+        position: absolute;
+        top: 445px;
+        height: 370px;
+        }
+
+        .block4{
+        background-color: gray;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        float: left;
+        width: 650px;
+        }
+
+        .block5{
+        background-color: gray;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        float: right;
+        width: 530px;
+        }
+
+
+        .under-top {
+        width: 1200px;
+        height: 20px;
+        margin: 0 auto;
+        }
+
+        p{
+        font-size: 12pt;
+        font-family: 'Helvetica Neue', 'Open Sans',sans-serif;
+        color: #222;
+        }
+
+
+        h1 {color: #ddd;}
+        h1 span {
+        color:#4ca6cf;
+        font-size: 40px;
+        }
+
+        h2 {
+        color: white;
+        font-size: 20pt;
+        font-family: 'Helvetica Neue', 'Open Sans',sans-serif;
+        }
+        h3 {color: white;}
+
+        span{
+        font-size: 12pt;
+        font-family: 'Helvetica Neue', 'Open Sans',sans-serif;
+        color: white;
+        padding-right: 10px;
+        align: left;
+        }
+        .div-row{
+        align: left;
+        width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="container" align="center">
+    <div  class="heading padding-bottom padding-top small-interval" align="center">
+        <h1><span>АРИАДНА</span></h1><br><h3>Распознавание и сопровождение людей</h3>
+    </div>
+    <div class="under-top">
+    </div>
+
+    <div class="block block1-width">
+        <h2>Загрузка видеоролика</h2>
+
+
+        <form wicket:id="form" action="" name="upload-vid" method="post" enctype="multipart/form-data">
+            <div class="div-row">
+                <table border="0">
+                    <tr>
+                        <td><span>Название видеоролика</span></td>
+                        <td colspan="4" height="10"><input name="videoname" form="upload-vid"type="text"/></td>
+                    </tr>
+                    <tr>
+                        <td wicket:id="feedback" colspan="4" height="10"/>
+                    </tr>
+                    <tr>
+                        <td height="50px"><span>Загрузить видеоролик</span></td>
+                        <td colspan="3" height="50px"><input wicket:id="fileUpload" size="40" type="file"/></td>
+                        <td height="50px"><input type="submit" value="Загрузить"/></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><span>Масштаб</span></td>
+                        <td>до 25%</td><td>от 25% до 50%</td><td>от 50% до 75%</td><td>от 75% до 100%</td>
+                    </tr>
+                    <tr align="center">
+                        <td><input name="camera-scale" form="upload-vid" type="radio" value="1"></input></td>
+                        <td><input name="camera-scale" form="upload-vid" type="radio" value="2"></input></td>
+                        <td><input name="camera-scale" form="upload-vid" type="radio" value="3"></input></td>
+                        <td><input name="camera-scale" form="upload-vid" type="radio" value="4"></input></td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </table>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="block block2-width">
+        <h2>Загруженные видеоролики</h2>
+        <form name="treatfile" action="" method="post" enctype="text/plane">
+            <table border="0">
+                <tr>
+                    <td><span>Выберите видеоролик</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <select size="5" name="selectfile">
+                            <option value="">File1</option>
+                            <option value="">File2</option>
+                            <option value="">File3</option>
+                            <option value="">File4</option>
+                            <option value="">File5</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="100"><input form="treatfile" type="submit" name="subm" value="Обработать"></input></td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+    <div class="block3">
+        <div class="block4" align="center">
+            <h2>Просмотр видеоролика</h2>
+            <video id="my-video" class="video-js" controls preload="auto" width="640" height="264" poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+                <source src="MY_VIDEO.mp4" type='video/mp4'>
+                <source src="MY_VIDEO.webm" type='video/webm'>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+            </video>
+
+            <script src="http://vjs.zencdn.net/5.4.4/video.js"></script>
+        </div>
+        <div class="block5" align="center">
+            <h2>Логи</h2>
+        </div>
+
+    </div>
+
+</div>
+</body>
+
+</html>
